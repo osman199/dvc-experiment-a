@@ -1,4 +1,4 @@
-from sklearn.datasets import load_boston, fetch_california_housing
+from sklearn.datasets import fetch_california_housing
 from sklearn.model_selection import train_test_split
 import pandas as pd
 import yaml
@@ -12,8 +12,8 @@ Config.DATASET_PATH.mkdir(parents=True, exist_ok=True)
 
 params = yaml.safe_load(open('params.yaml'))['prepare']
 
-load_boston(str(Config.ORIGINAL_DATASET_FILE_PATH))
-data = load_boston()
+fetch_california_housing(str(Config.ORIGINAL_DATASET_FILE_PATH))
+data = fetch_california_housing()
 df = pd.DataFrame(data=data['data'], columns = data['feature_names'])
 df['MEDV'] = data.target
 
