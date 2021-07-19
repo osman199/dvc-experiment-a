@@ -10,7 +10,7 @@ test_df = pd.read_csv(str(Config.DATASET_PATH / "test.csv"))
 
 
 def extract_features(df):
-    return df[['MedInc', 'HouseAge', 'AveBedrms']]
+    return df[['sex', 'bmi', 's3','age']]
 
 
 train_features = extract_features(train_df)
