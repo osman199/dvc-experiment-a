@@ -4,6 +4,8 @@ stages:
     deps:
     - data/raw
     - src/prepare.py
+    params:
+    - prepare
     outs:
     - data/prepared/test.csv
     - data/prepared/train.csv
@@ -24,6 +26,8 @@ stages:
     - data/features/train_features.csv
     - data/features/train_labels.csv
     - src/train_model.py
+    params:
+    - train
     outs:
     - model/model.pickle
     
