@@ -1,4 +1,4 @@
-from sklearn.datasets import fetch_california_housing
+from sklearn.datasets import load_diabetes
 from sklearn.model_selection import train_test_split
 import pandas as pd
 import yaml
@@ -12,12 +12,12 @@ Config.DATASET_PATH.mkdir(parents=True, exist_ok=True)
 
 params = yaml.safe_load(open('params.yaml'))['prepare']
 
-fetch_california_housing(str(Config.ORIGINAL_DATASET_FILE_PATH))
-data = fetch_california_housing()
+load_diabetes(str(Config.ORIGINAL_DATASET_FILE_PATH))
+data = load_diabetes()
 df = pd.DataFrame(data=data['data'], columns = data['feature_names'])
 df['MEDV'] = data.target
 
-df.to_csv(str(Config.ORIGINAL_DATASET_FILE_PATH), sep = ',', index = False)
+df.to_csv(str(Config.ORIGINAL_DATASET_FILE_PATH / "diabetes.csv"), sep = ',', index = False)
 
 
 df_train, df_test = train_test_split( df, test_size=params["split"], random_state=params["seed"] )
