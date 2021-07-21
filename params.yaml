@@ -3,7 +3,8 @@ prepare:
   seed: 20170428
 
 train:
-  n_estimators: 150
-  max_depth: 6
+  n_estimators: 50
+  max_depth: 5
+  min_samples_split: 6
   ccp_alpha: 0.1
-  seed: 20170428
+  max_features: auto
