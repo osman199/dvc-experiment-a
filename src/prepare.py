@@ -12,7 +12,6 @@ Config.DATASET_PATH.mkdir(parents=True, exist_ok=True)
 
 params = yaml.safe_load(open('params.yaml'))['prepare']
 
-fetch_california_housing(str(Config.ORIGINAL_DATASET_FILE_PATH))
 data = fetch_california_housing()
 df = pd.DataFrame(data=data['data'], columns = data['feature_names'])
 df['Target'] = data.target
